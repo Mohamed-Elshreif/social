@@ -1,0 +1,55 @@
+.comment__group {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.comment {
+	display: flex;
+	align-items: flex-start;
+	gap: 0.75rem;
+	color: white;
+}
+
+.comment a {
+	flex-shrink: 0;
+}
+
+.comment__dp {
+	width: 2rem;
+	aspect-ratio: 1;
+	object-fit: cover;
+	border-radius: 50%;
+	position: relative;
+}
+
+.comment h3 {
+	font-size: 0.85rem;
+	font-weight: 500;
+}
+
+.comment__text {
+	font-size: 0.8rem;
+	line-height: 1.7em;
+	color: #bbbbbb;
+	overflow-wrap: anywhere;
+}
+
+.comment__text span {
+	font-weight: bold;
+	color: white;
+}
+
+.replies {
+	padding-left: 5%;
+	margin-left: 5%;
+	border-left: 3px solid rgba(255, 255, 255, 0.123);
+}
+
+.replies .comment {
+	padding-block: 1rem;
+}
+
+.replies:has(.comment) {
+	margin-top: 1rem;
+}

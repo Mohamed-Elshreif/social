@@ -1,0 +1,144 @@
+.theme-switch {
+	position: fixed;
+	left: 3rem;
+	bottom: 7rem;
+	height: 3rem;
+	aspect-ratio: 1;
+	border-radius: 50%;
+	z-index: 5;
+	/* border: 1px solid var(--primary-400); */
+	box-shadow: 0 0 1rem rgba(0, 0, 0, 0.274);
+}
+
+.theme-switch:not(.open) {
+	animation: beat 3s ease-out infinite;
+}
+
+.switch {
+	width: 100%;
+	height: 100%;
+	display: grid;
+	place-content: center;
+	font-size: 1.5rem;
+	color: white;
+	cursor: pointer;
+	position: relative;
+	z-index: 2;
+	background-color: var(--primary-600);
+	border-radius: 50%;
+	transition: transform 0.3s ease-out;
+}
+
+.themes {
+	height: 100%;
+	background-color: var(--primary-600);
+	position: absolute;
+	top: 0;
+	left: 50%;
+	border-radius: 0vmax 100vmax 100vmax 0;
+	z-index: 1;
+	padding: 0.6rem;
+	gap: 0.5rem;
+	display: flex;
+	overflow: hidden;
+	pointer-events: none;
+	max-width: 0;
+	transition: max-width 0.3s ease-out;
+}
+
+.theme-switch.open .themes {
+	max-width: 300px;
+	pointer-events: all;
+	overflow: visible;
+}
+
+.theme-switch.open .switch {
+	transform: rotate(90deg);
+}
+
+.themes > div {
+	height: 100%;
+	aspect-ratio: 1;
+	border-radius: 50%;
+	background-color: white;
+	color: var(--primary-400);
+	border: 1px solid rgba(255, 255, 255, 0.473);
+	cursor: pointer;
+	position: relative;
+	isolation: isolate;
+}
+
+.themes > div:first-of-type {
+	margin-left: 1rem;
+}
+
+.themes .tooltip {
+	position: absolute;
+	background-color: white;
+	width: max-content;
+	padding: 0.2rem 1rem;
+	border-radius: 0.2rem;
+	pointer-events: none;
+	opacity: 0;
+	top: 0;
+	left: 50%;
+	transform: translate(-50%, -170%);
+	transition: opacity 0.2s ease-in;
+}
+.themes .tooltip::before {
+	position: absolute;
+	content: "";
+	bottom: 0;
+	left: 50%;
+	border: 10px solid transparent;
+	border-top-color: white;
+	transform: translate(-50%, 90%);
+}
+
+.themes > div:hover .tooltip {
+	opacity: 1;
+}
+
+.themes .dark {
+	background: linear-gradient(-45deg, #1f1f25 50%, #474951 50%);
+}
+
+.themes .dark-contrast {
+	background: linear-gradient(-45deg, #010001 50%, #242529 50%);
+}
+
+.themes .dark-blue-tint {
+	background: linear-gradient(-45deg, #0b0c27 50%, #2b2c44 50%);
+}
+
+@keyframes beat {
+	50% {
+		transform: scale(1.2);
+	}
+}
+
+@media (max-width: 800px) {
+	.container > .theme-switch {
+		display: none;
+	}
+	.theme-switch {
+		position: absolute;
+		right: 1rem;
+		left: initial;
+		bottom: 2rem;
+	}
+	.themes {
+		left: initial;
+		right: 50%;
+		border-radius: 100vmax 0 0 100vmax;
+	}
+	.theme-switch.open .switch {
+		transform: rotate(-90deg);
+	}
+	.themes > div:first-of-type {
+		margin-left: 0;
+	}
+	.themes > div:last-of-type {
+		margin-right: 1rem;
+	}
+}

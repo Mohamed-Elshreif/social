@@ -1,0 +1,72 @@
+#modals {
+	position: fixed;
+	bottom: 2rem;
+	right: 2rem;
+	z-index: 999;
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	pointer-events: none;
+	--direction: 1;
+}
+
+.modal {
+	background-color: var(--primary-600);
+	color: white;
+	min-width: 20rem;
+	max-width: 30rem;
+	transform: translateX(calc(var(--direction) * 150%));
+	max-height: 0;
+	padding: 0;
+	overflow: hidden;
+	pointer-events: none;
+	border-radius: 5px;
+	text-align: center;
+	border-left: 3px solid white;
+	animation: in 5s ease-out forwards;
+}
+
+@keyframes in {
+	5% {
+		padding: 1rem;
+		max-height: 500px;
+		transform: translateX(calc(var(--direction) * 150%));
+	}
+	8% {
+		padding: 1rem;
+		transform: translateX(calc(var(--direction) * 10px));
+		max-height: 500px;
+	}
+	11% {
+		padding: 1rem;
+		transform: translateX(0);
+		max-height: 500px;
+	}
+	95% {
+		padding: 1rem;
+		transform: translateX(0);
+		max-height: 500px;
+	}
+	96% {
+		padding: 1rem;
+		transform: translateX(calc(var(--direction) * -10px));
+		max-height: 500px;
+	}
+	100% {
+		padding: 1rem;
+		transform: translateX(calc(var(--direction) * 150%));
+		max-height: 500px;
+	}
+}
+
+.modal p {
+	font-size: 0.9rem;
+}
+
+@media (max-width: 800px) {
+	#modals {
+		right: initial;
+		left: 1rem;
+		--direction: -1;
+	}
+}

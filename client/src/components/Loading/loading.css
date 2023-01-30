@@ -1,0 +1,39 @@
+.loading {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	color: white;
+	text-align: center;
+	padding: 2rem;
+	background-color: var(--primary-400);
+	border-radius: 10px;
+	max-width: 90vw;
+}
+
+.loading__circle {
+	width: 50px;
+	aspect-ratio: 1;
+	border-radius: 50%;
+	border: 5px solid white;
+	border-bottom-color: transparent;
+	transform-origin: center;
+	margin: 1rem auto;
+	animation: rotate 1s linear infinite;
+}
+
+.loading h2 {
+	margin-bottom: 2rem;
+}
+
+.loading p {
+	font-size: 0.9rem;
+	max-width: 600px;
+	line-height: 1.8em;
+}
+
+@keyframes rotate {
+	to {
+		transform: rotate(360deg);
+	}
+}

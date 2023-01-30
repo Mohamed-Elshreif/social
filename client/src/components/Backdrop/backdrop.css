@@ -1,0 +1,33 @@
+.backdrop {
+	position: fixed;
+	inset: 0;
+	display: grid;
+	visibility: hidden;
+	background-color: rgba(0, 0, 0, 0.544);
+	place-content: center;
+	z-index: 99;
+	opacity: 0;
+	backdrop-filter: blur(0);
+	pointer-events: none;
+	transition: opacity 0.2s linear, backdrop-filter 0.2s linear, visibility 0.2s linear;
+}
+
+.backdrop.show {
+	opacity: 1;
+	visibility: visible;
+	pointer-events: all;
+	backdrop-filter: blur(0.3rem);
+}
+
+.backdrop.show .backdrop__content {
+	transform: translateY(0);
+	opacity: 1;
+}
+
+.backdrop__content {
+	border-radius: 10px;
+	transform: translateY(-30px);
+	opacity: 0;
+	transition: transform 0.3s ease-out, opacity 0.2s ease-out;
+	margin: 1rem;
+}

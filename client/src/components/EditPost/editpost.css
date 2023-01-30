@@ -1,0 +1,11 @@
+.editPost {
+	width: min(90vw, 700px);
+	max-height: 70vh;
+	overflow: scroll;
+	border-radius: 10px;
+	scrollbar-width: 0;
+}
+
+.editPost::-webkit-scrollbar {
+	display: none;
+}
